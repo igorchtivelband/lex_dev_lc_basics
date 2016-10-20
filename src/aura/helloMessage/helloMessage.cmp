@@ -1,0 +1,9 @@
+<aura:component >
+    <aura:attribute name="message" type="String"/>
+    <p><ui:outputText value="{!$Label.c.Greeting +' '+ v.message}"/></p>
+
+<!--     <p>{!$Label.c.Greeting + v.message}</p> -->
+<!--     <p>Hello! {!v.message}</p> -->
+<!--     <p>Hello! [ message goes here, soon ]</p> -->
+<!--     <c:helloMessage message="You look nice today."/> -->
+</aura:component>

@@ -1,3 +1,5 @@
-<aura:application>
-    <c:camping/>
+<aura:application >
+    <c:camping />
+    <c:expenseItem />
+    <c:campingListItem />
 </aura:application>
