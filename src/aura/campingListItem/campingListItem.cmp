@@ -1,17 +1,26 @@
 <aura:component >
-    <aura:attribute name="item" type="Camping_Item__c" required="true" />
+    <aura:attribute name="item" type="Camping_Item__c" required="true" default="{
+        Name    : 'name',
+        Price__c: 100,
+        Quantity__c: 10,
+        Packed__c: false
+    }" />
 
     <div>
-        <ui:outputText value="{!v.item.Name}"/>
+        <ui:outputText value="{!v.item.Name}" />
     </div>
     <div>
-        <ui:outputCurrency value="{!v.item.Price__c}"/>
+        <ui:outputCurrency value="{!v.item.Price__c}" />
     </div>
     <div>
-        <ui:outputNumber value="{!v.item.Quantity__c}"/>
+        <ui:outputNumber value="{!v.item.Quantity__c}" />
     </div>
     <div>
-        <ui:outputCheckbox value="{!v.item.Packed__c}"/>
+        <ui:outputCheckbox value="{!v.item.Packed__c}" />
+    </div>
+
+    <div>
+        <ui:button label="Packed!" press="{!c.packItem}"></ui:button>
     </div>
     
 </aura:component>
