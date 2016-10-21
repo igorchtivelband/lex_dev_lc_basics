@@ -1,5 +1,5 @@
-<aura:application >
+<aura:application extends="force:slds">
     <c:camping />
-    <c:expenseItem />
-    <c:campingListItem />
+<!--     <c:campingListItem /> -->
+<!--     <c:expenseItem /> -->
 </aura:application>

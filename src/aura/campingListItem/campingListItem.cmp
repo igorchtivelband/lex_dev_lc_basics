@@ -1,6 +1,6 @@
 <aura:component >
     <aura:attribute name="item" type="Camping_Item__c" required="true" default="{
-        Name    : 'name',
+        Name: 'name',
         Price__c: 100,
         Quantity__c: 10,
         Packed__c: false

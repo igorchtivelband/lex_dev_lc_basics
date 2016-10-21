@@ -1,4 +1,4 @@
-<aura:component>
+<aura:component >
     <aura:attribute name="message" type="String"/>
  
     <p>Message of the day: <ui:outputText value="{!v.message}"/></p>
