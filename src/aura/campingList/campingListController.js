@@ -1,4 +1,17 @@
 ({
+    doInit: function(component, event, helper){
+        var action = component.get("c.getItems");
+        action.setCallback(this, function(response){
+            var state = response.getState();
+            if(component.isValid() && state === "SUCCESS"){
+                component.set("v.items", response.getReturnValue());
+            }else{
+                console.log("Failed with state: " + state);
+            }
+        });
+        $A.enqueueAction(action);
+    },
+
     createItem : function(component, event, helper){
         var validItem = true;
 
@@ -38,24 +51,24 @@
         if(validItem){
             var newItem = component.get("v.newItem");
             console.log("Create camping item: " + JSON.stringify(newItem));
-//            helper.createNewItem(component, newItem);
+            helper.createNewItem(component, newItem);
 
-            // TODO need to be moved in campingListHelper.js as createNewItem method.
-            var theItems = component.get("v.items");
-            var newItem = JSON.parse(JSON.stringify(newItem));
-            console.log("Items before 'create': " + JSON.stringify(theItems));
-            theItems.push(newItem);
-            component.set("v.items", theItems);
-            console.log("Items after 'create': " + JSON.stringify(theItems));
-
-            component.set("v.newItem", {
-                'sobjectType': 'Camping_Item__c',
-                'Name': 'default',
-                'Quantity__c': 0,
-                'Price__c': 0,
-                'Packed__c': false
-            });
-
+//            // TODO need to be moved in campingListHelper.js as createNewItem method.
+//            var theItems = component.get("v.items");
+//            var newItem = JSON.parse(JSON.stringify(newItem));
+//            console.log("Items before 'create': " + JSON.stringify(theItems));
+//            theItems.push(newItem);
+//            component.set("v.items", theItems);
+//            console.log("Items after 'create': " + JSON.stringify(theItems));
+//
+//            component.set("v.newItem", {
+//                'sobjectType': 'Camping_Item__c',
+//                'Name': 'default',
+//                'Quantity__c': 0,
+//                'Price__c': 0,
+//                'Packed__c': false
+//            });
+//
         }
     }
 })
