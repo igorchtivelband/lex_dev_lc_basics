@@ -1,12 +1,8 @@
 <aura:component controller="CampingListController" >
     <aura:attribute name="items" type="Camping_Item__c[]" />
-    <aura:attribute name="newItem" type="Camping_Item__c" default="{
-        'sobjectType': 'Camping_Item__c',
-        Name: 'default',
-        Quantity__c: 0,
-        Price__c: 0,
-        Packed__c: false
-    }" />
+
+    <!-- The campingList component handles a c:addItemEvent event with the action handleAddItem in the JavaScript controller. -->
+    <aura:handler name="addItem" event="c:addItemEvent" action="{!c.handleAddItem}"/>
 
     <div class="slds-col slds-col--padded slds-p-top--large">
         <div aria-labelledby="newcampingitemform">
@@ -15,35 +11,10 @@
                     Add Camping Item
                 </legend>
 
-                <form class="slds-form--stacked">
-                    <div class="slds-form-element slds-is-required">
-                        <div class="slds-form-element__control">
-                            <ui:inputText aura:id="itemname" label="Name" class="slds-input" labelClass="slds-form-element__label" 
-                                value="{!v.newItem.Name}" required="true"/>
-                        </div>
-                    </div>
-                    <div class="slds-form-element slds-is-required">
-                        <div class="slds-form-element__control">
-                            <ui:inputNumber aura:id="quantity" label="Quantity" class="slds-input" labelClass="slds-form-element__label" 
-                                value="{!v.newItem.Quantity__c}" required="true"/>
-                        </div>
-                    </div>
-                    <div class="slds-form-element">
-                        <div class="slds-form-element__control">
-                            <ui:inputCurrency aura:id="price" label="Price" class="slds-input" labelClass="slds-form-element__label" 
-                                value="{!v.newItem.Price__c}" required="true"/>
-                        </div>
-                    </div>
-                    <div class="slds-form-element">
-                        <div class="slds-form-element__control">
-                            <ui:inputCheckbox aura:id="packed" label="Packed" class="slds-input" labelClass="slds-form-element__label" 
-                                value="{!v.newItem.Packed__c}" />
-                        </div>
-                    </div>
-                    <div class="slds-form-element">
-                        <ui:button label="Create Camping Item" class="slds-button slds-button--brand" press="{!c.createItem}"/>
-                    </div>
-                </form>
+                <!-- Replace the HTML form in the campingList component with a new campingListForm component 
+                    that calls the submitForm controller action when clicked. -->
+                <c:campingListForm />
+
             </fieldset>
         </div>
     </div>
@@ -61,10 +32,4 @@
             </div>
         </section>
     </div>
-
-<!--     <ol> -->
-<!--         <li>Bug Spray</li> -->
-<!--         <li>Bear Repellant</li> -->
-<!--         <li>Goat Food</li> -->
-<!--     </ol> -->
 </aura:component>

@@ -1,0 +1,4 @@
+<aura:event type="COMPONENT">
+    <!-- The addItemEvent event is of type component and has a Camping_Item__c type attribute named item. -->
+    <aura:attribute name="item" type="Camping_Item__c"/>
+</aura:event>
