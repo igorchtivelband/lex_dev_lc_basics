@@ -41,5 +41,9 @@
         <members>*</members>
         <name>CustomLabels</name>
     </types>
+    <types>
+        <members>Expense_Tracker</members>
+        <name>CustomApplication</name>
+    </types>
     <version>37.0</version>
 </Package>

@@ -1,4 +1,4 @@
-<aura:component controller="ExpensesController" >
+<aura:component controller="ExpensesController" implements="force:appHostable">
     <aura:attribute name="expenses" type="Expense__c[]"/>
 
     <aura:handler name="init" action="{!c.doInit}" value="{!this}" />
